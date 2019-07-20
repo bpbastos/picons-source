@@ -162,7 +162,7 @@ if [[ -f $location/build-input/tvheadend.serverconf ]]; then
     tempfile=$(mktemp --suffix=.servicelist)
 
     # ...the server url
-    [[ -n $TVH_USER ]] && url="http://$TVH_USER:$TVH_PASS@$TVH_HOST:$TVH_PORT" || url="http://$TVH_HOST:$TVH_PORT"
+    [[ -n $TVH_USER ]] && url="http://$TVH_USER:$TVH_PASS@$TVH_HOST:$TVH_PORT/tvheadend" || url="http://$TVH_HOST:$TVH_PORT/tvheadend"
   
     # ...reading the number of channel from the server
     channelcount=$(curl -s $url'/api/channel/grid?start=0&limit=1' | jq -r '.total' )
